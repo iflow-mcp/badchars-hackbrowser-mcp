@@ -4,11 +4,14 @@
 
 import { existsSync, mkdirSync, writeFileSync, rmSync } from "fs";
 import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 import type { Subprocess } from "bun";
 import { createProtocolClient } from "./protocol.js";
 import type { IProtocolClient } from "./protocol.js";
 
-const PROJECT_ROOT = join(dirname(dirname(import.meta.dir)));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const PROJECT_ROOT = join(dirname(__dirname));
 
 /** Firefox preference overrides for remote debugging */
 const FIREFOX_PREFS: Record<string, string | number | boolean> = {

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * HackBrowser MCP — Multi-container Firefox browser for security testing.
  *
